@@ -82,6 +82,9 @@ electricity/
 4. **Visit**: [http://localhost:8000](http://localhost:8000)
 
 ---
+5. Screenshots:
+   ![Screenshot 2025-06-09 233411](https://github.com/user-attachments/assets/b89cc774-e0b9-46a8-b35b-2eb4894ed7c7)
+
 
 ## 🙋‍♀️ Author
 
