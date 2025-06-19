@@ -84,6 +84,11 @@ electricity/
 ---
 5. Screenshots:
    ![Screenshot 2025-06-09 233411](https://github.com/user-attachments/assets/b89cc774-e0b9-46a8-b35b-2eb4894ed7c7)
+   ![Screenshot 2025-06-09 233445](https://github.com/user-attachments/assets/7a0e0e5b-ee96-4871-a114-f83e37bd66ed)
+   ![Screenshot 2025-06-09 233526](https://github.com/user-attachments/assets/db0601f7-8f57-49bc-bf00-bf0bb57dc4b4)
+   ![Screenshot 2025-06-09 233722](https://github.com/user-attachments/assets/84de3d27-b009-4a42-8b58-d5ab4f565aa5)
+   ![Screenshot 2025-06-05 213951](https://github.com/user-attachments/assets/a6f5135d-024b-4af2-81f2-5e00d410d447)
+
 
 
 ## 🙋‍♀️ Author
