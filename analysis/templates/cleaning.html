@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Data Cleaning - Data Analysis App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/css/bootstrap-dark.min.css" rel="stylesheet">
+</head>
+<body style="background-color: #cce7ff;" class="py-5">
+  <div class="container">
+    <div class="card shadow rounded bg-dark text-white">
+      <div class="card-header bg-warning text-white text-center">
+        <h1>Data Cleaning</h1>
+      </div>
+      <div class="card-body px-5 py-4">
+
+        {% if error %}
+          <div class="alert alert-danger text-center">{{ error }}</div>
+        {% endif %}
+
+        {% if no_null_values %}
+          <div class="alert alert-info text-center">{{ no_null_values }}</div>
+        {% endif %}
+        {% if fillna_mean_message %}
+          <div class="alert alert-success text-center">{{ fillna_mean_message }}</div>
+        {% endif %}
+
+        {% if original_shape %}
+          <div class="alert alert-info text-center">{{ original_shape }}</div>
+        {% endif %}
+
+        {% if new_size %}
+          <div class="alert alert-info text-center">{{ new_size }}</div>
+        {% endif %}
+        {% if new_shape_after_dropna %}
+          <div class="alert alert-info text-center">{{ new_shape_after_dropna }}</div>
+        {% endif %}
+
+        <div class="d-flex flex-wrap gap-3 justify-content-center mb-4">
+          <form method="POST" class="d-inline">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="dropna">
+            <button class="btn btn-warning btn-lg px-4 shadow-sm">Drop NA</button>
+          </form>
+
+          <form method="POST" class="d-inline">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="fillna">
+            <input type="hidden" name="fill_method" value="mean">
+            <button class="btn btn-info btn-lg px-4 shadow-sm">Fill NA (Mean)</button>
+          </form>
+
+          <form method="POST" class="d-inline">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="drop_duplicates">
+            <button class="btn btn-danger btn-lg px-4 shadow-sm">Drop Duplicates</button>
+          </form>
+
+          <form method="POST" class="d-inline">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="value_count">
+            <button class="btn btn-primary btn-lg px-4 shadow-sm">Value Count</button>
+          </form>
+        </div>
+
+        {% if cols %}
+          <h4>Data preview</h4>
+          <div class="table-responsive rounded shadow-sm border p-3 bg-white">
+            {{ preview_html|safe }}
+          </div>
+        {% endif %}
+
+        {% if value_counts_sum %}
+          <h4>Value Counts Sum</h4>
+          <div class="table-responsive rounded shadow-sm border p-3 bg-white">
+            <table class="table table-striped table-bordered mb-0">
+              <thead class="table-dark">
+                <tr>
+                  <th>Column</th>
+                  <th>Value Count Sum</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for col, count_sum in value_counts_sum.items %}
+                <tr>
+                  <td>{{ col }}</td>
+                  <td>{{ count_sum }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        {% endif %}
+
+        <div class="d-flex justify-content-center gap-3 mt-4">
+          <a href="{% url 'main' %}" class="btn btn-primary btn-lg shadow-sm">Main Page</a>
+          <a href="{% url 'visualization' %}" class="btn btn-success btn-lg shadow-sm">Data Visualization</a>
+          <a href="{% url 'ml_algo' %}" class="btn btn-primary">ML Algo</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
